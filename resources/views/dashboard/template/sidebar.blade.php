@@ -50,8 +50,10 @@
                 <li><a class="treeview-item" href="{{ url('admin/librarians/add') }}"><i class="icon fa fa-circle-o"></i> Add Librarians</a></li>
             </ul>
         </li>
+
         @if (auth()->user()->role == 'admin')
-            <li><a class="app-menu__item " href="{{ url('admin/users') }}"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Users</span></a></li>
+        <li><a class="app-menu__item " href="{{ url('admin/users') }}"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Users</span></a>
+        </li>
         @endif
     </ul>
 </aside>

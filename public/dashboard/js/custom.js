@@ -20,8 +20,7 @@ $(document).ready(function() {
 		"order": [[ 4, "desc" ]],
 		'processing' : true,
 		'serverSide' : true,
-
-
+		searchDelay: 1000,
 		'ajax' : {
 			'type' : 'POST',
 			'url' : 'faqs/data',
@@ -29,7 +28,7 @@ $(document).ready(function() {
 				'_token' : token
 			}
 
-		},
+		}, 
 		'columns' : [
 
 		{'name' : 'name', width : '15%'},
@@ -222,6 +221,7 @@ $(document).ready(function() {
 		language: {
 			searchPlaceholder: "Search books"
 		},
+		searchDelay: 1000,
 		"bSort": true,
 		'ajax' : {
 			'type' : 'POST',
@@ -393,7 +393,7 @@ $(document).ready(function() {
 				"lengthMenu": [5, 10, 25, 50, 75, 100 ],
 				'processing' : true,
 				'serverSide' : true,
-
+				searchDelay: 1000,
 				language: {
 					searchPlaceholder: "Search books"
 				},
@@ -469,6 +469,7 @@ $(document).ready(function() {
 			}
 
 		},
+		searchDelay: 1000,
 		'columns' : [
 			{
 	           "className":      'details-control',
@@ -604,6 +605,7 @@ $(document).ready(function() {
 				'_token' : token
 			}
 		},
+		searchDelay: 1000,
 		'columns' : [
 
 			{'name' : 'accession_number', width : '10%'},
@@ -632,6 +634,7 @@ $(document).ready(function() {
 						'_token' : token
 					}
 				},
+				searchDelay: 1000,
 				'columns' : [
 
 					{'name' : 'id', width : '10%'},
@@ -705,6 +708,7 @@ $(document).ready(function() {
 				'_token' : token
 			}
 		},
+		searchDelay: 1000,
 		rowID : 'member_id',
 		'columns' : [
 			{'name' : 'member_id'},
@@ -847,6 +851,7 @@ $(document).ready(function() {
 				'_token' : token
 			}
 		}, 
+		searchDelay: 1000,
 		'columns' : [
 			{'name' : 'member_id'},
 			{'name' : 'name'},
@@ -993,6 +998,7 @@ $(document).ready(function() {
 				'_token' : token
 			}
 		}, 
+		searchDelay: 1000,
 		'columns' : [ 
 			{'name' : 'title',width:'13%'}, 
 			{'name' : 'created_at',width:'20%'},
@@ -1131,6 +1137,7 @@ $(document).ready(function() {
 				'_token' : token
 			}
 		},
+		searchDelay: 1000,
 		'columns' : [
 		{'name' : 'id',orderable:false, width : '10%'},
 		{'name' : 'name', width : '35%'},
@@ -1280,6 +1287,7 @@ $(document).ready(function() {
 				'_token' : token
 			}
 		},
+		searchDelay: 1000,
 		'columns' : [
 			{'name' : 'name'},
 			{'name' : 'position'}, 

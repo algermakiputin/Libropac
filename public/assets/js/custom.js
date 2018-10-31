@@ -104,7 +104,7 @@ $(document).ready(function(){
         'pageLength' : 25,
         'processing' : true,
         'serverSide' : true,
-      
+        searchDelay: 1000,
         language: {
             searchPlaceholder: "Search books"
         },
@@ -143,7 +143,7 @@ $(document).ready(function(){
         'pageLength' : 25,
         'processing' : true,
         'serverSide' : true,
-      
+        searchDelay: 1000,
         language: {
             searchPlaceholder: "Search books"
         },

@@ -6,8 +6,10 @@
       <div class="cover"></div>
     </section>
     <section class="login-content">
-      <div class="logo">
-        <h1><i class="fa fa-book"></i> LMS</h1>
+      <div class="logo text-center">
+      <img src="{{ url('images/logo.png') }}" style="height: 75px;margin:auto;">
+      <br>
+        <h2> Library System</h2>
       </div>
       <div class="login-box">
         <form class="login-form" action="{{ route('login') }}" method="POST">
@@ -33,19 +35,7 @@
                 </span>
             @endif
           </div>
-          <div class="form-group">
-            <div class="utility">
-              <div class="animated-checkbox">
-                <label>
-                <input class="form-check-input" type="checkbox" >
-
-                                     
-                  <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}><span class="label-text">Stay Signed in</span>
-                </label>
-              </div>
-              <p class="semibold-text mb-2"><a href="{{ route('password.request') }}" data-toggle="flip">Forgot Password ?</a></p>
-            </div>
-          </div>
+        
           <div class="form-group btn-container">
             <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN</button>
           </div>

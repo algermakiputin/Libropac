@@ -116,6 +116,8 @@ Route::group(['middleware' => ['auth']],function() {
 	Route::delete('admin/users/destroy','UsersController@destroy');
 	Route::post('admin/user/profile','UsersController@profile');
 	Route::post('admin/users/update','UsersController@update');
+
+	Route::get('admin/analytics','AnalyticsController@index');
 });
 
 
