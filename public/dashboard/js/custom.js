@@ -26,7 +26,7 @@ $(document).ready(function() {
 		searchDelay: 1000,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : base_url + 'faqs/data',
+			'url' : base_url + '/admin/faqs/data',
 			'data' : {
 				'_token' : token
 			}
@@ -54,7 +54,7 @@ $(document).ready(function() {
 
 		$.ajax({
 			type : 'POST',
-			url : base_url + 'faqs/find',
+			url : base_url + '/admin/faqs/find',
 			data : {
 				_token : token,
 				id : id
@@ -74,7 +74,7 @@ $(document).ready(function() {
 			$("#answer_form button[type='submit']").prop('disabled',true);
 			$.ajax({
 				type : 'PATCH',
-				url : base_url + 'faqs/answer',
+				url : base_url + '/admin/faqs/answer',
 				data : {
 					_token : token,
 					_method : 'PATCH',
@@ -110,7 +110,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 							method : 'DELETE',
-							url : base_url + 'faqs/destroy',
+							url : base_url + '/admin/faqs/destroy',
 							data : {
 								_token : token,
 								_method : 'DELETE',
@@ -145,7 +145,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 							method : 'PATCH',
-							url : base_url + 'faqs/approve',
+							url : base_url + '/admin/faqs/approve',
 							data : {
 								_token : token,
 								_method : 'PATCH',
@@ -183,7 +183,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 							method : 'PATCH',
-							url : base_url + 'faqs/approve',
+							url : base_url + '/admin/faqs/approve',
 							data : {
 								_token : token,
 								_method : 'PATCH',
@@ -1135,7 +1135,7 @@ $(document).ready(function() {
 		'processing' : true,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : base_url + 'librarians/data',
+			'url' : base_url + '/admin/librarians/data',
 			'data' : {
 				'_token' : token
 			}
@@ -1285,7 +1285,7 @@ $(document).ready(function() {
 		'processing' : true,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : base_url + 'users/data',
+			'url' : base_url + '/admin/users/data',
 			'data' : {
 				'_token' : token
 			}

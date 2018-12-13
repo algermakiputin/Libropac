@@ -21,6 +21,15 @@
               <div class="col-md-12">
                   <h3 class="tile-title">Barrowers form</h3>
               </div>
+              @if (Session::has('success'))
+              <div class="col-md-12">
+                <div class="alert alert-success">
+                  <p>
+                    {{ Session::get('success') }}
+                  </p>
+                </div>
+              </div>
+              @endif
               <div class="col-md-6">
 
                   <div class="tile-body">

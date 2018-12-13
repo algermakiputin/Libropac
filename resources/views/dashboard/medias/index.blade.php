@@ -12,23 +12,32 @@
     </div>
     <div class="tile">
         <div class="row">
-          <div class="col-md-12"> 
-            <table class="table table-striped table-bordered" id="media_table">
-            <thead>
-              <tr >
-                <th>Accession No.</th>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Type</th>
-                <th>Source of Fund</th>
-                <th>Price</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-          </table>
-          </div>
+            @if (Session::has('success'))
+            <div class="col-md-12"> 
+                <div class="alert alert-success">
+                    <p>
+                        {{ Session::get('success') }}
+                    </p>
+                </div>
+            </div>
+            @endif
+            <div class="col-md-12"> 
+                <table class="table table-striped table-bordered" id="media_table">
+                    <thead>
+                      <tr >
+                        <th>Accession No.</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Type</th>
+                        <th>Source of Fund</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
+</div>
 </main>
 @endsection

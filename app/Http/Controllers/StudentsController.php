@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\students;
-
+use App\members;
 class StudentsController extends Controller
 {
     
@@ -60,7 +60,7 @@ class StudentsController extends Controller
                       </button>
                       <div class="dropdown-menu">
                         <a class="dropdown-item edit" data-id="'.$student->id.'" data-toggle="modal" data-target="#answer" >Edit <form method="post" action="'. url('admin/books/edit') . '"><input type="hidden" name="_token" value="'. csrf_token() .'"><input type="hidden" name="id" value="'. $student->id .'"></form></a>
-                        <a class="dropdown-item delete" data-id="'.$student->id.'" href="#" >Delete</a>
+                        <a class="dropdown-item delete" data-id="'.$student->member_id.'" href="#" >Delete</a>
                         
                       </div>
                     </div> ' 
@@ -96,7 +96,8 @@ class StudentsController extends Controller
  
     public function destroy(Request $request)
     {
-        return students::where('id', $request->input('id'))->delete();
+        members::where('member_id', $request->input('id'))->delete();
+        return students::where('member_id', $request->input('id'))->delete();
     }
 
     public function find(Request $request) {

@@ -17,6 +17,25 @@
               <div class="col-md-12">
                   <h3 class="tile-title">Add Media to library holdings</h3>
               </div>
+              @if (Session::has('success'))
+              <div class="col-md-12">
+                <div class="alert alert-success">
+                  {{ Session::get('success') }}
+                </div>
+              </div>
+              @endif
+              @if ($errors->any())
+                <div class="col-md-12">
+                  <div class="alert alert-danger">
+                    <ul>
+                 
+                    @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                  </div>
+                </div>
+              @endif
               <div class="col-md-6">
                   <div class="tile-body">
                       <div class="form-horizontal">
@@ -75,13 +94,13 @@
                       <div class="form-group row">
                           <label class="control-label col-md-3">Subject Term 1</label>
                           <div class="col-md-8">
-                              <input class="form-control" required="required" type="text" placeholder="Subject Term 1" name="subject_term1">
+                              <input class="form-control" required="required" type="text" placeholder="Subject Term 1" name="subjectTerm1">
                           </div>
                       </div>
                       <div class="form-group row">
                           <label class="control-label col-md-3">Subject Term 2</label>
                           <div class="col-md-8">
-                              <input class="form-control" required="required" type="text" placeholder="Subject Term 1" name="subject_term2">
+                              <input class="form-control" required="required" type="text" placeholder="Subject Term 1" name="subjectTerm2">
                           </div>
                       </div>
                       <div class="form-group row">
@@ -118,7 +137,11 @@
                       <div class="form-group row">
                           <label class="control-label col-md-3">Source of Fund</label>
                           <div class="col-md-8">
-                              <input class="form-control" required="required" type="text" placeholder="Source of Fund" name="source_fund">
+                              <select required="required" class="form-control" name="source_fund">
+                                <option value="">Select Source of Fund</option>
+                                <option value="Purchased">Purchased</option>
+                                <option value="Donated">Donated</option>
+                              </select>
                           </div>
                       </div>
                       <div class="form-group row">

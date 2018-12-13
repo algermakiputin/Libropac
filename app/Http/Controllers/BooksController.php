@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\books;
 
 use DB;
+use Session;
 class BooksController extends Controller
 {
 	public function index() {
@@ -42,38 +43,43 @@ class BooksController extends Controller
 	public function insert(Request $request, books $book) {
 		
 		$request->validate([
-			'accession_number' => 'required',
-			'location_symbol' => 'required',
-			'classification' => 'required',
-			'title' => 'required',
-			'author1' => 'required',
-			'author2' => 'required',
-			'editor' => 'required',
-			'edition' => 'required',
-			'publication_place' => 'required',
-			'publisher' => 'required',
-			'copyright' => 'required',
-			'physical_description' => 'required',
-			'subjectTerm1' => 'required',
-			'subjectTerm2' => 'required',
-			'degree_program' => 'required',
-			'subjectCode_description' => 'required',
-			'notes_summary' => 'required',
-			'isbn' => 'required',
-			'source_fund' => 'required',
-			'date_encoded' => 'required',
-			'price' => 'required',
-			'loaning_period' => 'required',
-			'status' => 'required'
-	]);
+				'accession_number' => 'required',
+				'location_symbol' => 'required',
+				'classification' => 'required',
+				'title' => 'required',
+				'author1' => 'required',
+				'author2' => 'required',
+				'editor' => 'required',
+				'edition' => 'required',
+				'publication_place' => 'required',
+				'publisher' => 'required',
+				'copyright' => 'required',
+				'physical_description' => 'required',
+				'subjectTerm1' => 'required',
+				'subjectTerm2' => 'required',
+				'degree_program' => 'required',
+				'subjectCode_description' => 'required',
+				'notes_summary' => 'required',
+				'isbn' => 'required',
+				'source_fund' => 'required',
+				'date_encoded' => 'required',
+				'price' => 'required',
+				'loaning_period' => 'required',
+				'status' => 'required'
+		]);
 		if ($book->insert($request->all())) {
+			echo "test";
+			Session::flash("success", "Book Added Successfully");
 			return redirect()->back();
 		}
+
+		die();
 	}
 
 	public function update(Request $request) {
 		if ((new books)->modify($request->all())) {
-			return redirect('admin/books');
+			Session::flash('success', "Book Edited Successfully");
+			return redirect()->back();
 		}
 	}
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\medias;
 
 use DB;
+use Session;
 
 class MediaController extends Controller
 {
@@ -49,7 +50,7 @@ class MediaController extends Controller
                 'price' => 'required', 
                 ]);
     		(new medias)->store($request->all());
-
+            Session::flash('success', 'Media Added Successfully');
     		return redirect()->back();
     }
 
@@ -69,8 +70,10 @@ class MediaController extends Controller
 
     public function update(Request $request) {
 
-        if ((new medias)->modify($request->all())) 
-            return redirect('admin/media');
+        if ((new medias)->modify($request->all())) { 
+            Session::flash('success', 'Media updated successfully.');
+            return redirect("admin/media");
+        }
     }
 
     public function destroy(Request $request) {

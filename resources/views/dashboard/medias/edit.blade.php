@@ -19,6 +19,7 @@
               <div class="col-md-12">
                   <h3 class="tile-title">Edit Media to library holdings</h3>
               </div>
+              
               <div class="col-md-6">
                   <input type="hidden" name="id" value="{{ $media->id }}">
                   <div class="tile-body">
@@ -115,13 +116,17 @@
                       <div class="form-group row">
                           <label class="control-label col-md-3">Subject Code</label>
                           <div class="col-md-8">
-                              <input class="form-control" type="text" placeholder="Subject Code" name="subject_code">
+                              <input class="form-control" type="text" placeholder="Subject Code" name="subject_code" value="{{ $media->subject_code }}">
                           </div>
                       </div>
                       <div class="form-group row">
                           <label class="control-label col-md-3">Source of Fund</label>
                           <div class="col-md-8">
-                              <input class="form-control" type="text" value="{{ $media->source_fund }}" placeholder="Source of Fund" name="source_fund">
+                              <select required="required" class="form-control" name="source_fund">
+                                <option value="">Select Source of Fund</option>
+                                <option value="Purchased" {{ $media->source_fund == "Purchased" ? "selected" : '' }}>Purchased</option>
+                                <option value="Donated" {{ $media->source_fund == "Donated" ? "selected" : '' }}>Donated</option>
+                              </select>
                           </div>
                       </div>
                       <div class="form-group row">

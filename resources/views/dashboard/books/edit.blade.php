@@ -21,6 +21,13 @@
               <div class="col-md-12">
                   <h3 class="tile-title">Edit Book to library holdings</h3>
               </div>
+              @if (Session::has('success'))
+              <div class="col-md-12">
+                <div class="alert alert-success">
+                  {{ Session::get('success') }}
+                </div>
+              </div>
+              @endif
               <div class="col-md-6">
 
                   <div class="tile-body">
@@ -35,7 +42,7 @@
                               <label class="control-label col-md-3" >Location Symbol</label>
                               <div class="col-md-8">
                                   <select class="form-control col-md-12" name="location_symbol" style="width: 100%;" placeholder="Location Symbol">
-                                      <option value=""></option>
+                                      <option value="">Select Location Symbol</option>
                                       <option value="Fil" {{ $book->location_symbol == 'Fil' ? 'selected' : '' }}>Fil</option>
                                       <option value="Crim" {{ $book->location_symbol == 'Crim' ? 'selected' : '' }}>Crim</option>
                                       <option value="BA" {{ $book->location_symbol == 'BA' ? 'selected' : '' }}>BA</option>

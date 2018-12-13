@@ -5,20 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use DB;
-
 use App\students;
-
 use App\transactions;
-
 use App\members;
-
 use App\faculties;
-
 use App\books;
-
 use App\medias;
-
 use Carbon\Carbon;
+use Session;
 
 class TransactionsController extends Controller
 {
@@ -42,15 +36,13 @@ class TransactionsController extends Controller
 
     public function returnUpdate(Request $request) {
 
-        $request->validate([
+        $request->validate([    
                 'transaction_id' => 'required'
             ]);
+    
 
-        $transaction = transactions::select(['type','book_id','media_id'])->where([
-                'transaction_id' => $request->input('transaction_id'),
-                'status' => 'pending'
-            ])->first();
-        
+        $transaction = transactions::find($request->input("transaction_id"));
+     
         if ($transaction) {
             $type = $transaction->type;
 
@@ -61,12 +53,9 @@ class TransactionsController extends Controller
 
             $setAvailable = $type == "media" ? medias::where('id', $id)->update(['status' => 1]) : books::where('id', $id)->update(['status' => 1]);
       
-            return (new transactions)->where('transaction_id', $request->transaction_id)->update(['status' => 'completed']);
+            transactions::where('id', $transaction->id)->update(['status' => 'completed']);
                
         }
-            
-            return redirect()->back()->with('error','Transaction ID not found or already completed');
-
 
     }
 
@@ -288,7 +277,8 @@ class TransactionsController extends Controller
 
                     $transactions->store($transaction_id, $member_id, $book_id, $type, $media_id, $due,$membership_type);
                     $type == "book" ? books::where('id',$book_id)->update(['status' => 0]) : medias::where('id',$media_id)->update(['status' => 0]) ;
-                    return;
+                    Session::flash('success', "Barrow Successfully");
+                    return redirect()->back();
                 }
                 
                 $members->store($membership_type, $member_id);
@@ -301,7 +291,7 @@ class TransactionsController extends Controller
 
                 
             });
-    	 
+    	       Session::flash('success', "Barrow Successfully");
     		return redirect()->back();	
     		
     }
