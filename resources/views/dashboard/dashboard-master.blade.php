@@ -4,6 +4,7 @@
 	<title></title>
 
 	@include('dashboard.template.header')
+	<meta name="base-url" content="{{ url('') }}">
 </head>
 <body class="app sidebar-mini rtl">
 	@include('dashboard.template.topnav')

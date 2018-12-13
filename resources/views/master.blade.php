@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="base-url" content="{{ url('') }}">
     <title>Library System - Holy Child College of Davao</title>
 
 	@include('template.header')

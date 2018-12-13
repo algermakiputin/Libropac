@@ -1,6 +1,8 @@
-var token = $("meta[name=csrf-token]").attr('content');
 
 $(document).ready(function(){
+    var token = $("meta[name=csrf-token]").attr('content');
+    var base_url = $("meta[name=base-url]").attr('content');
+    
     $('.collapse').on('show.bs.collapse', function () {
        $("#accordion").find('.collapse.in').collapse('hide');
        $(this).siblings('.card-header').addClass('active');
@@ -21,7 +23,7 @@ $(document).ready(function(){
         var details = $("#comments").val();
         $.ajax({
             type : 'POST',
-            url : '/ask/store',
+            url : base_url + '/ask/store',
             data : {
                 _token : token,
                 name : name,
@@ -62,7 +64,7 @@ $(document).ready(function(){
     
         $.ajax({
             type : 'get',
-            url : '/faqs/paginate?page=' + page,
+            url : base_url + '/faqs/paginate?page=' + page,
             data : {
                 _token : token
             },
@@ -111,7 +113,7 @@ $(document).ready(function(){
         "bSort": true,
         'ajax' : {
             'type' : 'POST',
-            'url' : '/books/data',
+            'url' : base_url + '/books/data',
             'data' : {
                 '_token' : token
             }
@@ -150,7 +152,7 @@ $(document).ready(function(){
         "bSort": true,
         'ajax' : {
             'type' : 'POST',
-            'url' : '/media/opac',
+            'url' : base_url + '/media/opac',
             'data' : {
                 '_token' : token
             }

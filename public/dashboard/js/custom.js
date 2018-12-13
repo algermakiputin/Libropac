@@ -1,8 +1,11 @@
-var token = $("meta[name=csrf-token]").attr('content');
-var home = "/admin";
+
 $(document).ready(function() {
 
+	var token = $("meta[name=csrf-token]").attr('content');
+	var home = "/admin";
+	var base_url = $("meta[name=base-url]").attr('content');
 	var loc = $(location).attr('href');
+	
 	$(".app-menu li a").removeClass('active');
 	$(".app-menu__item[href='"+loc+"']").addClass('active');
 	
@@ -23,7 +26,7 @@ $(document).ready(function() {
 		searchDelay: 1000,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : 'faqs/data',
+			'url' : base_url + 'faqs/data',
 			'data' : {
 				'_token' : token
 			}
@@ -51,7 +54,7 @@ $(document).ready(function() {
 
 		$.ajax({
 			type : 'POST',
-			url : 'faqs/find',
+			url : base_url + 'faqs/find',
 			data : {
 				_token : token,
 				id : id
@@ -71,7 +74,7 @@ $(document).ready(function() {
 			$("#answer_form button[type='submit']").prop('disabled',true);
 			$.ajax({
 				type : 'PATCH',
-				url : 'faqs/answer',
+				url : base_url + 'faqs/answer',
 				data : {
 					_token : token,
 					_method : 'PATCH',
@@ -107,7 +110,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 							method : 'DELETE',
-							url : 'faqs/destroy',
+							url : base_url + 'faqs/destroy',
 							data : {
 								_token : token,
 								_method : 'DELETE',
@@ -142,7 +145,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 							method : 'PATCH',
-							url : 'faqs/approve',
+							url : base_url + 'faqs/approve',
 							data : {
 								_token : token,
 								_method : 'PATCH',
@@ -180,7 +183,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 							method : 'PATCH',
-							url : 'faqs/approve',
+							url : base_url + 'faqs/approve',
 							data : {
 								_token : token,
 								_method : 'PATCH',
@@ -225,7 +228,7 @@ $(document).ready(function() {
 		"bSort": true,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : '/admin/books/data',
+			'url' : base_url + '/admin/books/data',
 			'data' : {
 				'_token' : token
 			}
@@ -265,7 +268,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 							method : 'DELETE',
-							url : '/admin/books/delete',
+							url : base_url + '/admin/books/delete',
 							data : {
 								_token : token,
 								_method : 'DELETE',
@@ -310,7 +313,7 @@ $(document).ready(function() {
 	function memberFind(id,elem) {
 		var ajax = $.ajax({
 			type : 'POST',
-			url : '/admin/member/find',
+			url : base_url + '/admin/member/find',
 			data : {
 				_token : token,
 				id : id
@@ -400,7 +403,7 @@ $(document).ready(function() {
 				"bSort": true,
 				'ajax' : {
 					'type' : 'POST',
-					'url' : '/books/selectData',
+					'url' : base_url + '/books/selectData',
 					'data' : {
 						'_token' : token
 					}
@@ -463,7 +466,7 @@ $(document).ready(function() {
 		'serverSide' : true,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : '/admin/transactions/data',
+			'url' : base_url + '/admin/transactions/data',
 			'data' : {
 				'_token' : token
 			}
@@ -537,7 +540,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 							method : 'POST',
-							url : '/admin/return/update',
+							url : base_url + '/admin/return/update',
 							data : {
 								_token : token, 
 								_method : 'POST',								
@@ -572,7 +575,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 							method : 'POST',
-							url : '/admin/lost/update',
+							url : base_url + '/admin/lost/update',
 							data : {
 								_token : token, 
 								_method : 'POST',								
@@ -600,7 +603,7 @@ $(document).ready(function() {
 		'serverSide' : true,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : '/admin/media/adminData',
+			'url' : base_url + '/admin/media/adminData',
 			'data' : {
 				'_token' : token
 			}
@@ -629,7 +632,7 @@ $(document).ready(function() {
 				'serverSide' : true,
 				'ajax' : {
 					'type' : 'POST',
-					'url' : '/admin/media/selectData',
+					'url' : base_url + '/admin/media/selectData',
 					'data' : {
 						'_token' : token
 					}
@@ -672,7 +675,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 							method : 'DELETE',
-							url : '/admin/media/delete',
+							url : base_url + '/admin/media/delete',
 							data : {
 								_token : token,
 								_method : 'DELETE',
@@ -703,7 +706,7 @@ $(document).ready(function() {
 		'serverSide' : true,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : '/admin/students/data',
+			'url' : base_url + '/admin/students/data',
 			'data' : {
 				'_token' : token
 			}
@@ -728,7 +731,7 @@ $(document).ready(function() {
  		var id = $(this).data('id');
  		$.ajax({
  			type : 'post',
- 			url : '/admin/students/find',
+ 			url : base_url + '/admin/students/find',
  			data : {
  				_token : token,
  				id : id
@@ -762,7 +765,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 				 			type : 'DELETE',
-				 			url : '/admin/students/destroy',
+				 			url : base_url + '/admin/students/destroy',
 				 			data : {
 				 				_token : token,
 				 				_method : 'DELETE',
@@ -797,7 +800,7 @@ $(document).ready(function() {
  		 e.preventDefault();
  		 $.ajax({
  		 	type : 'PATCH',
- 		 	url : '/admin/students/update',
+ 		 	url : base_url + '/admin/students/update',
  		 	data : {
  		 		_token : token,
  		 		_method : 'PATCH',
@@ -846,7 +849,7 @@ $(document).ready(function() {
 		'serverSide' : true,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : '/admin/faculties/data',
+			'url' : base_url + '/admin/faculties/data',
 			'data' : {
 				'_token' : token
 			}
@@ -869,7 +872,7 @@ $(document).ready(function() {
  		var id = $(this).data('id');
  		$.ajax({
  			type : 'post',
- 			url : '/admin/faculties/find',
+ 			url : base_url + '/admin/faculties/find',
  			data : {
  				_token : token,
  				id : id
@@ -902,7 +905,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 				 			type : 'DELETE',
-				 			url : '/admin/faculties/destroy',
+				 			url : base_url + '/admin/faculties/destroy',
 				 			data : {
 				 				_token : token,
 				 				_method : 'DELETE',
@@ -936,7 +939,7 @@ $(document).ready(function() {
  		 e.preventDefault();
  		 $.ajax({
  		 	type : 'PATCH',
- 		 	url : '/admin/faculties/update',
+ 		 	url : base_url + '/admin/faculties/update',
  		 	data : {
  		 		_token : token,
  		 		_method : 'PATCH',
@@ -993,7 +996,7 @@ $(document).ready(function() {
 		'serverSide' : true,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : '/admin/notices/data',
+			'url' : base_url + '/admin/notices/data',
 			'data' : {
 				'_token' : token
 			}
@@ -1016,7 +1019,7 @@ $(document).ready(function() {
  		var id = $(this).data('id');
  		$.ajax({
  			type : 'post',
- 			url : '/admin/notices/find',
+ 			url : base_url + '/admin/notices/find',
  			data : {
  				_token : token,
  				id : id
@@ -1037,7 +1040,7 @@ $(document).ready(function() {
  		 e.preventDefault();
  		 $.ajax({
  		 	type : 'PATCH',
- 		 	url : '/admin/notices/update',
+ 		 	url : base_url + '/admin/notices/update',
  		 	data : {
  		 		_token : token,
  		 		_method : 'PATCH',
@@ -1081,7 +1084,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 				 			type : 'DELETE',
-				 			url : '/admin/notices/destroy',
+				 			url : base_url + '/admin/notices/destroy',
 				 			data : {
 				 				_token : token,
 				 				_method : 'DELETE',
@@ -1132,7 +1135,7 @@ $(document).ready(function() {
 		'processing' : true,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : 'librarians/data',
+			'url' : base_url + 'librarians/data',
 			'data' : {
 				'_token' : token
 			}
@@ -1162,7 +1165,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 				 			type : 'DELETE',
-				 			url : '/admin/librarians/destroy',
+				 			url : base_url + '/admin/librarians/destroy',
 				 			data : {
 				 				_token : token,
 				 				_method : 'DELETE',
@@ -1197,7 +1200,7 @@ $(document).ready(function() {
  		var id = $(this).data('id');
  		$.ajax({
  			type : 'post',
- 			url : '/admin/librarians/find',
+ 			url : base_url + '/admin/librarians/find',
  			data : {
  				_token : token,
  				id : id
@@ -1223,7 +1226,7 @@ $(document).ready(function() {
  	  
  		$.ajax({
  			method : 'POST',
- 			url : '/admin/librarians/update', 
+ 			url : base_url + '/admin/librarians/update', 
  			type: 'POST',
  			headers : {
  				'X-CSRF-TOKEN' : token
@@ -1282,7 +1285,7 @@ $(document).ready(function() {
 		'processing' : true,
 		'ajax' : {
 			'type' : 'POST',
-			'url' : 'users/data',
+			'url' : base_url + 'users/data',
 			'data' : {
 				'_token' : token
 			}
@@ -1311,7 +1314,7 @@ $(document).ready(function() {
  		var role = $("#r_role").val();
  		$.ajax({
  			method : 'POST',
- 			url : '/admin/users/store', 
+ 			url : base_url + '/admin/users/store', 
  			type: 'POST',
  			headers : {
  				'X-CSRF-TOKEN' : token
@@ -1360,7 +1363,7 @@ $(document).ready(function() {
  		var id = $(this).data('id');
  		$.ajax({
  			type : 'post',
- 			url : '/admin/users/find',
+ 			url : base_url + '/admin/users/find',
  			data : {
  				_token : token,
  				id : id
@@ -1388,7 +1391,7 @@ $(document).ready(function() {
  		var formData = new FormData(form); 
  		$.ajax({ 
  			method : 'post',
- 			url : '/admin/users/updateRole',          
+ 			url : base_url + '/admin/users/updateRole',          
  			headers : {
  				'X-CSRF-TOKEN' : token
  			},
@@ -1435,7 +1438,7 @@ $(document).ready(function() {
 					action: function () {
 						$.ajax({
 				 			type : 'DELETE',
-				 			url : '/admin/users/destroy',
+				 			url : base_url + '/admin/users/destroy',
 				 			data : {
 				 				_token : token,
 				 				_method : 'DELETE',
@@ -1482,7 +1485,7 @@ $(document).ready(function() {
  		var formData = new FormData(form); 
  		$.ajax({ 
  			method : 'post',
- 			url : '/admin/users/update',          
+ 			url : base_url + '/admin/users/update',          
  			headers : {
  				'X-CSRF-TOKEN' : token
  			},
