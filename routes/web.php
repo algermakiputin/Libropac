@@ -120,6 +120,5 @@ Route::group(['middleware' => ['auth']],function() {
 	Route::get('admin/analytics','AnalyticsController@index');
 });
 
-
 Auth::routes();
  
