@@ -5,16 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\news;
+
 use App\notices;
+
 use App\faqs;
+
 use App\settings;
+
 use App\transactions;
+
 use DB;
+
 use App\students;
+
 use App\faculties;
+
 use App\members;
+
 use App\books;
+
 use App\medias;
+
 use App\librarian;
 
 class AppController extends Controller
@@ -29,7 +40,7 @@ class AppController extends Controller
 
             $librarians = librarian::all();
     	 
-    		return \View::make('index',compact('notices','about','faqs','librarians'));
+    		return view('index',compact('notices','about','faqs','librarians'));
     }
 
     public function admin() {
