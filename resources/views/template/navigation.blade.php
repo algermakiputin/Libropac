@@ -17,6 +17,7 @@
                 <li><a href="{{ url('/multimedia') }}"><i class="fa fa-file"></i> Multimedia Resources</a></li>
                 <li><a href="{{ url('/ask')}}"><i class="fa fa-question"></i> ASK LIBRARIAN</a></li>
                 <li><a href="{{ url('/faqs')}}"><i class="fa fa-question-circle"></i> FAQS</a></li>
+                <li><a href="{{ url('/login')}}"><i class="fa fa-sign-in"></i> Sign In</a></li>
             </ul>
         </div>
     </div>
