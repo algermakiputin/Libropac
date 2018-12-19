@@ -5,7 +5,7 @@
 	jQuery(document).ready(function($){
 		'use strict';
 		jQuery('body').backstretch([
-			"{{url('assets/images/header/1.jpg')}}", 
+			"{{url('assets/images/header/1.JPG')}}", 
 			], {duration: 5000, fade: 700, centeredY: true });
 
 		
