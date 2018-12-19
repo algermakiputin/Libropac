@@ -40,7 +40,7 @@ class AppController extends Controller
 
             $librarians = librarian::all();
     	 
-    		return view('index',compact('notices','about','faqs','librarians'));
+    		return \View('index',compact('notices','about','faqs','librarians'));
     }
 
     public function admin() {
