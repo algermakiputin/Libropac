@@ -31,6 +31,7 @@ use App\librarian;
 class AppController extends Controller
 {
     public function index() { 
+            
     		$notices = notices::orderBy('updated_at','desc')->limit(6)->get();
     		
     		$about = settings::where('name','about')->first();
