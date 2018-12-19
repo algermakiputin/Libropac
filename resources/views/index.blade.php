@@ -5,12 +5,12 @@
     jQuery(document).ready(function($){
         'use strict';
         jQuery('body').backstretch([
-            "{{url('assets/images/header/1.jpg')}}",
-            "{{url('assets/images/header/2.jpg')}}",
-            "{{url('assets/images/header/3.jpg')}}",
-            "{{url('assets/images/header/4.jpg')}}",
-            "{{url('assets/images/header/7.jpg')}}",
-            "{{url('assets/images/header/8.jpg')}}"
+            "{{url('assets/images/header/1.JPG')}}",
+            "{{url('assets/images/header/2.JPG')}}",
+            "{{url('assets/images/header/3.JPG')}}",
+            "{{url('assets/images/header/4.JPG')}}",
+            "{{url('assets/images/header/7.JPG')}}",
+            "{{url('assets/images/header/8.JPG')}}"
             ], {duration: 5000, fade: 700, centeredY: true });
 
 
