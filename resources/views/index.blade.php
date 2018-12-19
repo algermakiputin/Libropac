@@ -10,8 +10,7 @@
             "{{url('assets/images/header/3.jpg')}}",
             "{{url('assets/images/header/4.jpg')}}",
             "{{url('assets/images/header/7.jpg')}}",
-            "{{url('assets/images/header/8.jpg')}}",
-            "{{url('assets/images/header/9.jpg')}}"
+            "{{url('assets/images/header/8.jpg')}}"
             ], {duration: 5000, fade: 700, centeredY: true });
 
 
