@@ -31,7 +31,7 @@ use App\librarian;
 class AppController extends Controller
 {
     public function index() { 
-            dd(config("app.env"));
+            echo (config("app.env"));
     		$notices = notices::orderBy('updated_at','desc')->limit(6)->get();
     		
     		$about = settings::where('name','about')->first();
