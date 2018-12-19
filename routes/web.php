@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', 'AppController@index');
 
 Route::get('books','BooksController@index');
@@ -120,5 +120,5 @@ Route::group(['middleware' => ['auth']],function() {
 	Route::get('admin/analytics','AnalyticsController@index');
 });
 
-Auth::routes();
+
  
