@@ -7,9 +7,9 @@
     </section>
     <section class="login-content">
       <div class="logo text-center">
-      <img src="{{ url('images/logo.png') }}" style="height: 75px;margin:auto;">
+   <!--    <img src="{{ url('images/logo.png') }}" style="height: 75px;margin:auto;"> -->
       <br>
-        <h2> Library System</h2>
+        <h1> Library System</h1>
       </div>
       <div class="login-box">
         <form class="login-form" action="{{ route('login') }}" method="POST">

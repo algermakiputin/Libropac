@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="base-url" content="{{ url('') }}">
-    <title>Library System - Holy Child College of Davao</title>
+    <title>LibrOPAC - Library Management System</title>
 
 	@include('template.header')
 </head>
@@ -22,7 +22,7 @@
 	        <div class="container">
 	            <div class="row">
 	                <div class="col-sm-8">
-	                    &copy; 2018 Holy Child College of Davao Library System. Developed By: <a href="https://algermakiputin.com">Alger Makiputin</a>
+	                    &copy; <?php echo date('Y-m-d') ?> LibroPac Developed By: <a href="https://algermakiputin.com">Alger Makiputin</a>
 	                </div>
 	                <div class="col-sm-4">
 	                    <ul class="pull-right">

@@ -26,9 +26,9 @@
                         <div class="col-sm-12">
                             <div class="carousel-content text-center">
                                 
-                                <img class="home-icon bounce-in" style="width: 140px;" src="{{ url('images/logo.png') }}">
+                                <i class="home-icon bounce-in fa fa-book"  style="width: 140px;" ></i>
                               
-                                <h2 class="boxed animation animated-item-1 fade-down">Holy Child College of Davao</h2> 
+                                <h2 class="boxed animation animated-item-1 fade-down">Library Management System</h2> 
                                 <div>
                                     <p class="boxed animation animated-item-2 fade-up">Online Public Access Catagalog </p>
                                     <br>
@@ -56,9 +56,7 @@
                     </div>                
                 </div>
             </div>
-
-        
-                
+ 
             @foreach ($notices as $n) 
                 @if ($loop->iteration % 2 == 0) 
                 <div class="row" style="margin-bottom: 15px;">
@@ -79,9 +77,7 @@
                 </div>
                 @endif 
             @endforeach
-                
-             
-
+                 
 
         </div>
         <div class="gap"></div>

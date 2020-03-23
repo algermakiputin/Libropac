@@ -35,6 +35,7 @@ class AppController extends Controller
     		$notices = notices::orderBy('updated_at','desc')->limit(6)->get();
     		
     		$about = settings::where('name','about')->first();
+            
             $about->content =  preg_replace("/\r\n/", "<br />", $about->content);
 
             $faqs = faqs::where('status',1)->orderBy('updated_at','DESC')->limit(5)->offset(0)->get();

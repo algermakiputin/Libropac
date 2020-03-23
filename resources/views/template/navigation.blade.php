@@ -6,7 +6,7 @@
                 <i class="fa fa-bars"></i>
             </button>
             <a class="navbar-brand" href="{{ url('/') }}"><h1><span class="bounce-in no-display animated bounceIn appear">
-                <img src="{{ url('images/hccd.png') }}" style="  margin-top: -15px;">
+                LibrOPAC
             </span></h1></a>
         </div>
         <div class="collapse navbar-collapse">
