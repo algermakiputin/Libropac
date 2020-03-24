@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
+	<title></title> 
 	@include('dashboard.template.header')
 	<meta name="base-url" content="{{ url('') }}">
 </head>

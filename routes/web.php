@@ -11,7 +11,7 @@
 |
 */
 Auth::routes();
-Route::get('/', 'AppController@index');
+Route::get('/', 'AppController@admin');
 
 Route::get('books','BooksController@index');
 Route::post('books/data','BooksController@data');

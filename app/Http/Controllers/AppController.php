@@ -47,29 +47,31 @@ class AppController extends Controller
 
     public function admin() {
         
-          
-            $y = Date('Y');
-      
-            $dataSet = [];
-            $students = [];
-            $faculties = [];
-            $pending = transactions::where('status','pending')->count();
-            $lost = transactions::where('status','lost')->count();
-            $complete = transactions::where('status','completed')->count();
-            $widget = [
-            	$members = members::count(),
-	          $books = books::count(),
-	          $medias = medias::count(),
-	          $transactions = transactions::count(),
-            ];
-            for ($i = 1; $i < 13; $i++) {
-                
-                array_push($students, $s = transactions::where(DB::raw('DATE_FORMAT(created_at, "%m")'), $i)->where('member_type','student')->where(DB::raw('DATE_FORMAT(created_at, "%Y")'), $y)->count());
-                
-                array_push($faculties, $f = transactions::where(DB::raw('DATE_FORMAT(created_at, "%m")'), $i)->where('member_type','faculty')->where(DB::raw('DATE_FORMAT(created_at, "%Y")'), $y)->count());
-                           
-            }   
+        if (\Auth::check() == FALSE)
+            return redirect('login');
 
-    		return view('dashboard.index',compact('students','faculties','pending','lost','complete','widget'));
+        $y = Date('Y');
+  
+        $dataSet = [];
+        $students = [];
+        $faculties = [];
+        $pending = transactions::where('status','pending')->count();
+        $lost = transactions::where('status','lost')->count();
+        $complete = transactions::where('status','completed')->count();
+        $widget = [
+        	$members = members::count(),
+          $books = books::count(),
+          $medias = medias::count(),
+          $transactions = transactions::count(),
+        ];
+        for ($i = 1; $i < 13; $i++) {
+            
+            array_push($students, $s = transactions::where(DB::raw('DATE_FORMAT(created_at, "%m")'), $i)->where('member_type','student')->where(DB::raw('DATE_FORMAT(created_at, "%Y")'), $y)->count());
+            
+            array_push($faculties, $f = transactions::where(DB::raw('DATE_FORMAT(created_at, "%m")'), $i)->where('member_type','faculty')->where(DB::raw('DATE_FORMAT(created_at, "%Y")'), $y)->count());
+                       
+        }   
+
+		return view('dashboard.index',compact('students','faculties','pending','lost','complete','widget'));
     }
 }

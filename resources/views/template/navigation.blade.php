@@ -6,7 +6,7 @@
                 <i class="fa fa-bars"></i>
             </button>
             <a class="navbar-brand" href="{{ url('/') }}"><h1><span class="bounce-in no-display animated bounceIn appear">
-                LibrOPAC
+                <i class="fa fa-book"></i> LibrOPAC
             </span></h1></a>
         </div>
         <div class="collapse navbar-collapse">
